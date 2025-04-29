@@ -7,9 +7,13 @@ export default defineConfig({
     postcss: "postcss.config.cjs",
   },
   ssr: {
-    noExternal: ['@fortawesome/fontawesome-free/css/all.min.css']
+    noExternal: ["@fortawesome/fontawesome-free/css/all.min.css"],
   },
   build: {
-    cssCodeSplit: false
-  }
+    cssCodeSplit: false,
+    ssr: true,
+    rollupOptions: {
+      input: "./server/index.js",
+    },
+  },
 });
