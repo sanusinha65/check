@@ -11,9 +11,5 @@ export default defineConfig({
   },
   build: {
     cssCodeSplit: false,
-    ssr: true,
-    rollupOptions: {
-      input: "/server.js",
-    },
   },
 });
