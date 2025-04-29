@@ -13,7 +13,7 @@ export default defineConfig({
     cssCodeSplit: false,
     ssr: true,
     rollupOptions: {
-      input: "./server/index.js",
+      input: "/server.js",
     },
   },
 });
