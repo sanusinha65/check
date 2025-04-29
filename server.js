@@ -53,34 +53,8 @@ app.use('*all', async (req, res) => {
 
     const rendered = await render(url)
 
-    // Collect CSS files
-    const cssFiles = [
-      '/src/index.css',
-      '/src/App.css',
-      '/node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-    ]
-
-    let cssContent = ''
-    if (!isProduction) {
-      // In development, use Vite to transform CSS
-      for (const file of cssFiles) {
-        const css = await vite.transformIndexHtml(url, `<link rel="stylesheet" href="${file}">`)
-        cssContent += css
-      }
-    } else {
-      // In production, read from dist
-      for (const file of cssFiles) {
-        try {
-          const css = await fs.readFile(`./dist/client${file}`, 'utf-8')
-          cssContent += `<style>${css}</style>`
-        } catch (e) {
-          console.error(`Error reading CSS file ${file}:`, e)
-        }
-      }
-    }
-
     const html = template
-      .replace(`<!--app-head-->`, `${cssContent}${rendered.head ?? ''}`)
+      .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
