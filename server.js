@@ -48,7 +48,7 @@ app.use('*all', async (req, res) => {
       render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
     } else {
       template = templateHtml
-      render = (await import('./dist/server/entry-server.js')).render
+      render = (await import('./dist/server/entry-server.jsx')).render
     }
 
     const rendered = await render(url)
