@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Work Sans", "DM Sans", "Open Sans", sans-serif;
+}
+
+.blog-content p {
+    @apply text-lg text-gray-700 leading-relaxed my-2;
+  }
+
+  .blog-content h2 {
+    @apply text-2xl font-semibold text-gray-900 mt-6;
+  }
+
+  .blog-content h4 {
+    @apply text-xl font-semibold text-gray-800 mt-6;
+  }
+  .blog-content ul {
+    @apply list-disc list-inside ml-4;
+  }
+  .blog-content li {
+    @apply text-lg text-gray-600;
+  }
+
+  .blog-content hr {
+    @apply mt-4 mb-4 text-gray-600;
+  }
+
+  .blog-content span {
+    @apply font-bold;
+  }
+  
+  
